@@ -1,0 +1,13 @@
+//two parameters of same type can be written like 
+//func name(p1,p2 int)
+
+//returning error and more than one value
+//func name(...) (int,error)
+
+//Public and private
+capital anem
+
+//Naming retun variables
+func Divide(p1, p2 float64) (answer float64, err error) {
+
+//Methods Declarations
