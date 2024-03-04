@@ -1,0 +1,76 @@
+why stl?
+prewritten and tested code
+maintained by go contributors
+backward compatibility
+dependencies
+portability
+
+Println - new line after // can use +
+Print //can use + 
+Printf uses delimiters
+
+commandline arguments :
+go build test.go // 0 1 2 indexes
+
+flags:
+preceeded by - 
+
+inputs from keyboard:
+scanf returns int and error
+int is number of items scanned //checkout how it reads whitespaces/values 
+we can use %q which means to read quoted strings which allows us to read more than one word
+fmt.Scanf("%s",name)
+
+bufio:
+buffered input that contains data we can use later
+1.scanner =  bufio.NewScanner(os.Stdin)
+2.scanner.Scan()
+scanner.Text()
+
+FMT?
+library to format input and output to go programs
+Sscanf()
+somewhat like printf insetad of printing out are scanning the information
+scanln()
+scans input and stops at new line (same liek scanf space separated input )
+
+Formatting output
+Print - no new line use \n (returns bytes written , err)
+%v -> format specifier (infer value from varaible)
+%d %s %f -> implicitly specifying what value should be
+%.2f , %4.2f 4 before decimal 2 after decimal
+%4.2 right justified
+-4.2 left justified
+
+Sprintf() format a variable and stick it to other variable
+output := fmt.Sprintf("%s",name)
+
+Manipulating string:
+color:
+windows doesnt support color on console you can use cross platform libraries
+
+formatting data types:
+struct %v , %T{gives the type (main.Person)}
+int %d , %b (binary rep)
+%c -> ascii rep of number printf("%c",42)
+%x -> hex values
+/pkg/gmt ->golagn website for formatting identifiers
+
+LOG PACKAGE :
+Error Levels:
+information ->something to inform to user
+warning -> bad can happen but prgm will run fine
+error -> something exepcted to happen but didnt happen prgm may be able to continue
+fatal -> close the prgm immediately
+
+import "log"
+log.Println("hello")
+os.OpenFile("log.txt", os.O_CREATE | os.O_APPEND |os.O_WRONLY, 0666) //if file is not there the create otherwise append the text , make it wrirt only and set file permissions
+
+Trace Logger:
+gives every single detail about its execution
+trace.Start(file)
+trace.Stop()
+to read trace file use : go tool trace trace.out
+
+
