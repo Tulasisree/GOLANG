@@ -1,0 +1,33 @@
+string is a read only slice of bytes in go
+indexed 
+[0:5] to get part of string
+
+comparing strings:
+str1 == str2 or we can add strings library and 
+use strings.Compare(str1,str2) // returns 0-> match 1-> no match -1->str1>str2 lexi order //this is faster
+
+splitting strings:
+strings.Split(str,separator)
+
+strings.Fields(str) breaks string into words
+
+find and replace:
+//we can filter the log messages we want
+strings.Contains(str,searchTerm)
+strings.HasPrefix(str,searchTerm) // to see if the stmt start with this term
+strings.HasSuffix(str,searchTerm)
+strings.Replace(str,"str1","str2",-1)//replace str1 with str2 everytime (-1 means all ) 
+
+regular expressions:
+regexp PACKAGE
+r:=regexp.Compile(`exp`)
+r.MatchString(str)
+r.FindAllString(str,-1)
+r.FindStringIndex(str)
+r.ReplaceAllString(s,s1) in s with s1
+
+Trimming strings:
+strings.TrimSpace(e) , TrimLeft , TrimRight , TrimPrefix , TrimSuffix
+
+Casing in strings:
+
