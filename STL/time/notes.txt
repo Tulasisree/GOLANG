@@ -1,0 +1,18 @@
+TIME PACKAGE :
+wall clock time :
+provided by os to keep track of current time of the day
+subject to variation ( we can change time in our os)
+not great for measuring time
+monotonic clock:
+used for measuring time
+not subject to varaition
+only meaningful for process calling it
+can be simulated by wall clock time
+
+formatting time clock:
+time.Now() returns struct
+calculating time spans:
+since()
+until()
+calculating elapsed time:
+
