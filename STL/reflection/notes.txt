@@ -1,0 +1,36 @@
+reflection :
+statically typed - type is known and fixed at compile time
+Basic types : bool strings int
+aggregate types : arrays structs created from other types
+reference types : pointers slices functions
+interface types :
+the empty interface :
+we can create a func and pass in several diff kinds of interfaces through taht single empty interface
+func x(t interface{}){
+    switch reflect.TypeOf(t).Name() {
+        ...
+    }
+}
+x(interfaceone)
+x(interfacetwo)
+
+accessing types at runtime:
+reflect library
+type x struct {
+    ...
+}
+p := x{..}
+reflect.TypeOf(p).Name() //main.x //x
+reflect.ValueOf(p) //
+reflect.ValueOf(p).Kind() //what kind pf type -> struct
+
+creating types at runtime:
+types like slices doesnt have Name() to them
+creating new slice from employes slice
+employes := make([]employee,3)
+eType := reflect.TypeOf(employees)
+newEmployeeList := reflect.MakeSlice(eType,0,0) //type,length,capacity
+newEmployeeList := reflect.Append(newEmployeeList,reflect.ValueOf(employee{3,"Mary"}))
+
+creating function at runtime:
+
