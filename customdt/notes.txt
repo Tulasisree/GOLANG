@@ -1,0 +1,83 @@
+interface :
+type identifiable interface {
+    //functions
+    ID string
+}
+in go ->implicitly inherits interface
+
+small case variables in struct are not accessible outside
+
+type aliases:
+let this be in a struct p
+type name = string
+firstname name
+
+in main package we can use it like
+printf("%T",p.name("berry")) -> this is of string
+
+disadvantage :
+func (t name) redirecturl() string{ //error ->cannot define new methods on non local builtin types string
+}
+we can use type definitions instead of aliases
+
+type definitions:
+type name string //they become that types that's the difference between alias and definitions
+func (t name) redirecturl() string{ //this works
+}
+
+Explicit type conversions:
+string(a)
+
+embedded structs:
+type Name struct {
+    first string
+    last string 
+}
+ 
+type Person struct{
+    Name //struct in struct
+}
+
+embedded interfaces:
+type Identifiable interface {
+	ID() string
+}
+
+type Citizen interface {
+	Identifiable
+	Country() string
+}
+
+Conflicting fields:
+//name has first and person also first
+type Name struct {
+	first string
+	last  string
+}
+
+type Employee struct {
+	Name
+}
+
+type Person struct {
+	Name
+	first          string
+	last           string
+	twitterHandler TwitterHandler
+	Citizen
+}
+
+two conflicting types:
+two interfaces with same function are embedded in same struct
+then
+p.Citizen.ID() -> structname.Interfacename.function
+
+Comparability and equality:
+should have predictable memory layout
+type Name struct{
+	first string
+	middle []string
+}
+name1:=Name{" "," "} name2:=Name{" "," "}
+cant compare name1 and name2 since slice doesnt have predictable memory layout
+
